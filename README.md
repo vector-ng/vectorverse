@@ -2,7 +2,7 @@
 
 Real-time crypto, Web3, DeFi, NFT and stock market intelligence.
 
-🔗 Live at [vectorverse.com](https://vectorverse.com)
+🔗 Live at [vectorverse.com](https://vectorverse-prp.vercel.app/)
 
 ## Features
 - Live price tracking via CoinGecko API
