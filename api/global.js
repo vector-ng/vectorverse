@@ -1,6 +1,6 @@
 export default async function handler(req, res) {
   const apiKey = process.env.COINGECKO_API_KEY;
-  const url = https://api.coingecko.com/api/v3/global?x_cg_demo_api_key=${apiKey};
+  const url = https://api.coingecko.com/api/v3/global?x_cg_demo_api_key=${CG-i3y69GkrEAUzMkeC59zkK4Aj};
 
   try {
     const r = await fetch(url, { signal: AbortSignal.timeout(8000) });
