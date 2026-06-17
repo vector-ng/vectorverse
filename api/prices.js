@@ -5,7 +5,7 @@ export default async function handler(req, res) {
   }
 
   const apiKey = process.env.COINGECKO_API_KEY;
-  let url = https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true&x_cg_demo_api_key=${apiKey};
+  let url = https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true&x_cg_demo_api_key=${CG-i3y69GkrEAUzMkeC59zkK4Aj};
   if (extra === '1') {
     url += '&include_market_cap=true&include_24hr_vol=true';
   }
