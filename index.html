@@ -81,9 +81,7 @@
   --pu-700: #7c3aed;
   --pu-800: #6d28d9;
   --pu-900: #4c1d95;
- * {
-  --webkit-tap-highlight-color: rgba(168, 85, 247, 0.25);
-}
+
   /* Green / red for market */
   --green:  #10b981;
   --green2: #059669;
@@ -2053,7 +2051,7 @@ img { display: block; max-width: 100%; }
       <div class="f-social">
         <a class="f-soc-btn" href="https://x.com/vectorverse_com" title="Twitter/X"><i class="fa-brands fa-x-twitter"></i></a>
         <a class="f-soc-btn" href="https://t.me/vectorverse_com" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
-        <a class="f-soc-btn" href="https://discord.gg/SHxV8Tbx37" title="Discord"><i class="fa-brands fa-discord"></i></a>
+        <a class="f-soc-btn" href="https://x.com/vectorverse_com" title="Discord"><i class="fa-brands fa-discord"></i></a>
       </div>
     </div>
     <div>
@@ -2546,6 +2544,21 @@ function drawCard(art){
   drawOrb(w*0.15, h*0.2,  w*0.35, 'rgba(124,58,237,0.12)');
   drawOrb(w*0.85, h*0.75, w*0.3,  'rgba(168,85,247,0.09)');
   drawOrb(w*0.5,  h*0.5,  w*0.2,  'rgba(192,132,252,0.05)');
+
+  // ── GIANT QUOTE MARK WATERMARK (fills dead space, sits behind text) ──
+  const qSize = gcFmt==='story' ? w*0.62 : gcFmt==='wide' ? w*0.32 : w*0.5;
+  const qX = w*0.93;
+  const qY = gcFmt==='story' ? h*0.62 : h*0.58;
+  ctx.save();
+  ctx.font = `800 ${qSize}px Georgia, 'Times New Roman', serif`;
+  ctx.textAlign = 'right';
+  ctx.textBaseline = 'middle';
+  const qGrad = ctx.createLinearGradient(qX-qSize, qY-qSize, qX, qY);
+  qGrad.addColorStop(0, isDark ? 'rgba(124,58,237,0.10)' : 'rgba(124,58,237,0.07)');
+  qGrad.addColorStop(1, isDark ? 'rgba(168,85,247,0.05)' : 'rgba(168,85,247,0.03)');
+  ctx.fillStyle = qGrad;
+  ctx.fillText('"', qX, qY);
+  ctx.restore();
 
   // ── TOP ACCENT LINE ──
   const accentGrad = ctx.createLinearGradient(0,0,w,0);
