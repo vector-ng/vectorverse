@@ -1,8 +1,7 @@
 export default async function handler(req, res) {
   try {
-    const { url } = new URL(req.url, https://${req.headers.host}).searchParams
-      ? Object.fromEntries(new URL(req.url, https://${req.headers.host}).searchParams)
-      : {};
+    const { searchParams } = new URL(req.url, `https://${req.headers.host}`);
+    const url = searchParams.get('url');
 
     if (!url) {
       return res.status(400).json({ error: 'Missing url parameter' });
@@ -25,6 +24,6 @@ export default async function handler(req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     return res.status(200).send(text);
   } catch (e) {
-    return res.status(500).json({ error: e.message });
+    return res.status(500).json({ error: e.message, stack: e.stack });
   }
 }
